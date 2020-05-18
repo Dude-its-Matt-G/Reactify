@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import authenticate from './Authenticate';
+/* import authenticate from './Authenticate';
 
-authenticate();
+authenticate(); */
 
 ReactDOM.render(<App />,document.getElementById('root'));
 
