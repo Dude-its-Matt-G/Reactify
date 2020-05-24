@@ -1,0 +1,60 @@
+@import '../../normalizer';
+
+.card{
+  &__container{
+    display: flex;
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 90%;
+    margin: 5px;
+     &:hover{
+        border: solid $secondary-color 2px;
+        box-shadow: 5px 5px 8px #888888;
+     }
+     &--name{
+       display: flex;
+       flex-direction: column;
+       padding: 15px;
+     }
+    
+  }
+  &__image{
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+  }
+  &__name {
+    font-family: $main-font;
+    font-size: 1rem;
+  }
+  &__title{
+    font-family: $main-font;
+    font-size: 1rem;
+  }
+  &__year{
+    font-family:$main-font;
+  }
+  &__link{
+    text-decoration: none;
+    color:black;
+    &:hover{
+			color:$secondary-color;
+		}
+  }
+}
+.box{
+  width: 100px;
+  height: 100px;
+  background: #CCC;
+  overflow: hidden;
+}
+.box img{
+  width: 100%;
+  height: auto;
+}
+@supports(object-fit: cover){
+    .box img{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }}

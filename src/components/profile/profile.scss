@@ -1,0 +1,86 @@
+@import '../../normalizer';
+
+.profile{
+  &__container {
+    display: flex;
+    margin:0% 5% ; 
+  }
+  &__photo {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+  }
+  &__name {
+    font-family: $main-font;
+    padding-left: 1rem;
+  }
+  &__text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;   
+  }
+  &__follows{
+    font-family: $main-font;
+    font-size: 1rem;
+    font-weight: 700;
+    color:$blue-color;
+    ;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+  }
+}
+.box2{
+  width: 60%;
+  height: 60%;
+  background: #CCC;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.box2 img{
+  width: 100%;
+  height: auto;
+}
+@supports(object-fit: cover){
+    .box2 img{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }}
+@media (min-width: 768px) {
+  .profile {
+    &__container {
+      display: flex;
+      margin:-3% 5%; 
+    }
+    &__name {
+      font-family: $main-font;
+      padding-left: 1rem;
+      font-size: 3rem;
+    }
+    &__follows{
+      font-size: 2rem;
+    }
+  }
+  .box2{
+    width: 50%;
+    height: 50%;
+    background: #CCC;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .profile {
+    &__container {
+      display: flex;
+      margin:-2% 5% -10%; 
+    }
+  }
+  .box2{
+    width: 40%;
+    height: 40%;
+    background: #CCC;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}

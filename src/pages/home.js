@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment} from 'react';
 import '../App';
 import LayoutHome from '../components/layout-home';
 import './pages.scss';
+import '../components/search-home/search-home.scss';
 import SearchBar from '../components/search-home';
 
-
 const Home = () => {
-  
  return(
   <Fragment>
     <LayoutHome>
@@ -22,8 +21,8 @@ const Home = () => {
         search box and enjoy!
         </p>
       </div>
-      <div className="home__bar">
-        <SearchBar type="text" placeholder="Type the name of your favourite artist" name="artist"/>
+      <div>
+        <SearchBar type="text" placeholder="Type the name of your favourite artist" name="artist" classname="search" classnameWrite="search__write"/>
       </div>
     </div>       
    </LayoutHome>
