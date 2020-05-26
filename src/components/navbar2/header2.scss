@@ -1,0 +1,34 @@
+.show {
+  display: none;
+}
+.navbar {
+  &_figure2 {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+  }
+  &__logo2 {
+    width: 20%;
+  }
+  &__div2{
+    width:20%;
+    display: block;
+   } 
+}
+
+@media (min-width: 768px) {
+  .navbar_figure2 {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .navbar__logo2 {
+    width: 20%;
+  }
+  .navbar {
+    &__div2 {
+      width:20%;
+    }
+  }
+}

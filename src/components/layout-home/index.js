@@ -1,20 +1,19 @@
-import React, { Fragment } from 'react';
-/* import Footer from '../footer'; */
-import MainHeader from '../header';
-import '../layout/layout.scss';
+import React, { Fragment } from "react";
+import Footer from "../footer";
+import MainHeader from "../header";
+import "../layout/layout.scss";
 
-const LayoutHome = props =>{
+const LayoutHome = (props) => {
   const { show } = props;
-  return(
+  return (
     <Fragment>
       <div className="layout__container" className={show}>
-        <MainHeader/>
+        <MainHeader />
         {props.children}
-        {/* <Footer/> */}
+        <Footer />
       </div>
     </Fragment>
-  )
-
-}
+  );
+};
 
 export default LayoutHome;

@@ -1,39 +1,36 @@
-import React,{Fragment, useState} from 'react';
-import '../../App';
-import Navbar from '../navbar';
-import InputSearch from '../search';
-import '../layout/layout.scss';
-import MainHeader from '../header';
-/* import Footer from '../footer'; */
+import React, { Fragment, useState } from "react";
+import "../../App";
+import Navbar2 from "../navbar2";
+import InputSearch from "../search";
+import "../layout/layout.scss";
+import Footer from "../footer";
 
-const LayoutList = props =>{
-
+const LayoutList = (props) => {
   const [search, setSearch] = useState(false);
   const [drop, setDrop] = useState("/images/arrow.png");
 
-  const toggleSearch = (props) => {
-    if(!search) {
+  const toggleSearch = () => {
+    if (!search) {
       setSearch((prevState) => {
-      return {searchBar: !prevState.searchBar}
+        return { searchBar: !prevState.searchBar };
       });
-    setDrop("/images/arrow-up.png")
-      } else {
+      setDrop("/images/arrow-up.png");
+    } else {
       setSearch(false);
       setDrop("/images/arrow.png");
-  }
-}
+    }
+  };
 
-  return(
+  return (
     <Fragment>
       <div className="layout__container">
-      <Navbar toggleSearch={toggleSearch} arrow={drop}/>
-      {/* <MainHeader className={props.show}/> */}
-      <InputSearch search={search}/>
-      {props.children}
-     {/*  <Footer/>  */}
+        <Navbar2 toggleSearch={toggleSearch} arrow={drop} />
+        <InputSearch search={search} />
+        {props.children}
+        <Footer />
       </div>
     </Fragment>
- )
-}
+  );
+};
 
 export default LayoutList;

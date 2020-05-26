@@ -3,15 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import Layout from "../components/layout";
 import "../pages/pages.scss";
 import { spotyArtist, header } from "../config";
-import useAlbums from "../context/album";
 import Profile from "../components/profile";
-import Tracks from "../components/tracks_container";
 import TrackSingle from "../components/trackSingle";
+import TracksContainer from "../components/tracks_container";
+import useTracks from "../context/tracks";
+import useAlbums from "../context/album";
 
 const Album = (props) => {
-  const { albums } = useAlbums();
+  const { setTheTracks } = useTracks();
   const { id } = useParams();
   console.log(id);
+  const { setAlbums } = useAlbums();
 
   const [disco, setDisco] = useState([]);
   const [tracks, setTracks] = useState([]);
@@ -28,6 +30,7 @@ const Album = (props) => {
     const datas = await fetch(`${spotyArtist.url3}${id}`, { headers: header });
     const lp = await datas.json();
     setDisco(lp);
+    setAlbums(lp);
     console.log(lp);
   };
 
@@ -39,42 +42,29 @@ const Album = (props) => {
     const songs = results.items;
     setTracks(songs);
     console.log(songs);
+    setTheTracks(songs);
   };
 
-  const cantidadDiscos = tracks.filter((track) => {
-    return track.disc_number
-  })
-  console.log(cantidadDiscos)
+  const tracksCd = tracks.reduce((accumulator, track) => {
+    const { disc_number } = track;
+    const previousSongs = accumulator[disc_number] || [];
+    return { ...accumulator, [disc_number]: [...previousSongs, track] };
+  }, {});
 
-/*   const cd1 = tracks.filter((track) => {
-    return track.disc_number === 1
-  })
-
-  const cd2 = tracks.filter((track) => {
-    return track.disc_number === 1
-  })
-
-  const cd3 = tracks.filter((track) => {
-    return track.disc_number === 3
-  }) */
-
-    const list = tracks.map((data) => (
-    <TrackSingle key={data.id} 
-    name={data.name} id={data.id} 
-    url={data.preview_url}
-    />
-))
-
- 
-  // console.log(list1);
-
-  /*  const FirstCd = list1.map((data) => (
-    <TrackSingle key={data.id} 
-    name={data.name} id={data.id} 
-    url={data.preview_url}
-    />
-  ))
-  console.log (FirstCd); */
+  const list = Object.keys(tracksCd).map((key) => {
+    return (
+      <TracksContainer number={key}>
+        {tracksCd[key].map((track) => (
+          <TrackSingle
+            key={track.id}
+            name={track.name}
+            id={track.id}
+            url={track.preview_url}
+          />
+        ))}
+      </TracksContainer>
+    );
+  });
 
   return (
     <Fragment>
@@ -101,10 +91,7 @@ const Album = (props) => {
             </p>
           </div>
           <div className="line"></div>
-          <div className="list">
-            {/*  <Tracks content={list} cd={tracks.disc_number}/> */}
-            {list}
-          </div>
+          <div className="list">{list}</div>
         </div>
       </Layout>
     </Fragment>

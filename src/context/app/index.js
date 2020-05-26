@@ -1,23 +1,24 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-    console.log("context")
+  console.log("context");
 
-    const [appStorage, setStorage] = useState(
-        {
-            artist:[],
-            albums:[]
-        }
-    )
-    
-    return (
-        <AppContext.Provider value={[appStorage, setStorage]}>
-            {children}
-        </AppContext.Provider>
-    )
-}
+  const [appStorage, setStorage] = useState({
+    artist: [],
+    albums: {},
+    input: [],
+    likes: {},
+    tracks: [],
+  });
 
-export default AppContext
-export { AppProvider }
+  return (
+    <AppContext.Provider value={[appStorage, setStorage]}>
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+export default AppContext;
+export { AppProvider };

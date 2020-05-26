@@ -1,9 +1,9 @@
-@import '../../normalizer';
+@import "../../normalizer";
 
-.input{
+.input {
   position: relative;
-  top:67%;
-  background-color:black;
+  top: 67%;
+  background-color: black;
   width: 100%;
   height: 80px;
   display: flex;
@@ -11,37 +11,38 @@
   justify-content: center;
   align-items: center;
   transform: translateY(-200%);
-  transition: .8s;
+  transition: 0.8s;
 
- &.open{
-  transform: translateY(0);
-  transition: .8s;
- }
+  &.open {
+    transform: translateY(0);
+    transition: 0.8s;
+  }
 
- &__write{
-  position: relative;
-  z-index: 10;
-  width: 90%;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  text-align: center;
-  margin-left: -1.5rem;
-  font-family: $main-font;
-  font-size:0.8rem;
- }
+  &__write {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: -1.5rem;
+    font-family: $main-font;
+    font-size: 0.8rem;
+  }
 
- &__button{
-     position: relative;
-     left:1rem;
-     z-index: 20;
-     background-color: transparent;
-     border: transparent;
-     top:0.1rem
- }
- &__icon{
-  width: 1.2rem;
-  height: auto;
-
- }
-
+  &__button {
+    position: relative;
+    left: 1rem;
+    z-index: 20;
+    background-color: transparent;
+    border: transparent;
+    top: 0.1rem;
+  }
+  &__icon {
+    width: 1.2rem;
+    height: auto;
+    &-drop {
+      display: none;
+    }
+  }
 }

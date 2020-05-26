@@ -1,136 +1,154 @@
-@import '../normalizer';
+@import "../normalizer";
 .show {
-	display: none;
+  display: none;
 }
 .home {
-	&__container {
-		display: flex;
-		flex-direction: column;
-		margin-top:30%;
-		width: 100%;
-	}
-	&__currently {
-		font-family: $main-font;
-		font-weight: 700;
-		font-size: 0.8rem;
-		padding-top: 2px;
-	}
-	&__titles {
-		position: absolute;
-		top:120px;
-	}
-	&__h2{
-		font-family: $main-font;
-		font-weight: 800;
-		margin-left: 1rem;
-		padding:0;
-	}
-	&__h1{
-		font-family: $main-font;
-		margin-left: 1rem;
-		padding-bottom: -30%;
-		padding:0;
-	}
-	&__text{
-		font-family: $main-font;
-		font-size: 0.8rem;
-			&--container {
-				margin-top:2rem;
-				display: flex;
-				width: 90%;
-				padding: 0 1rem;
-				position: absolute;
-				top:180px;
-				&--currently {
-					position: absolute;
-					top:165px;
-					padding: 0 1rem;
-					width: 70%;
-					padding-bottom: 40px;
-				}
-			}
-	}	
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30%;
+    width: 100%;
+  }
+  &__currently {
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding-top: 2px;
+  }
+  &__titles {
+    position: absolute;
+    top: 120px;
+  }
+  &__h2 {
+    font-family: $main-font;
+    font-weight: 800;
+    margin-left: 1rem;
+    padding: 0;
+  }
+  &__h1 {
+    font-family: $main-font;
+    margin-left: 1rem;
+    padding-bottom: -30%;
+    padding: 0;
+  }
+  &__text {
+    font-family: $main-font;
+    font-size: 0.8rem;
+    &--container {
+      margin-top: 2rem;
+      display: flex;
+      width: 90%;
+      padding: 0 1rem;
+      position: absolute;
+      top: 180px;
+      &--currently {
+        position: absolute;
+        top: 165px;
+        padding: 0 1rem;
+        width: 70%;
+        padding-bottom: 40px;
+      }
+    }
+  }
+  &__searchbar {
+    display: none;
+  }
 }
 .link {
-	text-decoration: none;
-	font-family: $main-font;
-	font-size: 0.8rem;
-	color: black;
-		&:hover {
-			color:$main-color;
-		}
+  text-decoration: none;
+  font-family: $main-font;
+  font-size: 0.8rem;
+  color: black;
+  &:hover {
+    color: $main-color;
+  }
 }
-.link{
-	&__container {
-		position: relative;
-		margin-top: 15%;
-		padding: 0 1rem;
-		width: 50%;
-	}
-	&--p {
-		font-family: $main-font;
-		font-size: 0.8rem;
-	}
+.link {
+  &__container {
+    position: relative;
+    margin-top: 20%;
+    padding: 0 1rem;
+    width: 50%;
+  }
+  &--p {
+    font-family: $main-font;
+    font-size: 0.8rem;
+  }
 }
 .line {
-	border-top: 1px solid black;
-	position: relative;
-	top:10px;
-	width: 100%;
+  border-top: 1px solid black;
+  position: relative;
+  top: 10px;
+  width: 100%;
 }
 .artist-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 10%;
-	width: 100%;
-	margin-bottom: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+  width: 100%;
+  margin-bottom: 15%;
 }
 .list {
-	display: flex;
-	flex-direction: column; 
-	margin-top:10%;
-	padding-bottom:1rem ;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.page__container {
+	width: 100%;
 }
 
-@media(min-width:550px) {
-	.home {
-		&__h2 {
-			font-size:1.7rem;
-		}
-		&__h1 {
-			font-size: 2.5rem;
-		}
-		&__text {
-			font-size: 1rem;
-			&--container--currently {
-				top:180px;
-			}
-		}
-	}
-	.artist-list {
-		display: grid;
+@media (min-width: 550px) {
+  .home {
+    &__h2 {
+      font-size: 1.7rem;
+    }
+    &__h1 {
+      font-size: 2.5rem;
+    }
+    &__text {
+      font-size: 1rem;
+      &--container--currently {
+        top: 180px;
+      }
+    }
+  }
+  .artist-list {
+    display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		margin-top:5%;
-		padding-left: 1rem;
+		grid-gap:2px;
+		margin-top: 5%;
+		width: 100%;
+	}
+	.link {
+		font-size: 1rem;
+		&--p {
+			font-family: $main-font;
+			font-size: 1rem;
+		}
 	}
 }
-@media (min-width:768px){
-	.home{
-		&__h2{
-			font-size: 2rem;
-		}
-		&__h1{
-			font-size: 3rem;
-		}
-		&__text{
-			font-size: 1.2rem;
-			&--container{
-				margin-top: 3rem;
-				&--currently{
-					top:200px;
-				}
-			}
-		}
-	}
+@media (min-width: 768px) {
+  .home {
+    &__h2 {
+      font-size: 2rem;
+    }
+    &__h1 {
+      font-size: 3rem;
+    }
+    &__searchbar {
+      display: block;
+    }
+    &__text {
+      font-size: 1.2rem;
+      &--container {
+        margin-top: 3rem;
+        &--currently {
+          top: 200px;
+        }
+      }
+    }
+  }
 }

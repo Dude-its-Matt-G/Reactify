@@ -1,23 +1,28 @@
-@import '../../normalizer';
+@import "../../normalizer";
 
-.footer{
-  &__container{
-   display: flex;
-   width: 100%;
-   height: 60px;
-   background-color: $tertiary-color;
-   position:fixed;
-   bottom: 0;
-   left: 0;
+.footer {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: $tertiary-color;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    margin-top: 1rem;
   }
-  &__div--text{
-    font-family: $second-font;
-    font-weight: 500;
-    font-size: 0.6rem;
-    color: #ffff;
-    text-align: center;
-    margin-left:80%;
-    margin-top: 3%;
+  &__div--home {
+    padding-top: 1.5rem;
+    padding-left: 2rem;
+    a {
+      color: white;
+      font-size: 1.5rem;
 
+      &:hover {
+        color: $main-color;
+      }
+    }
   }
 }

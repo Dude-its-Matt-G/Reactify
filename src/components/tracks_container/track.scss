@@ -1,59 +1,54 @@
-@import '../../normalizer';
+@import "../../normalizer";
 
 .track {
   &__container {
     display: flex;
     flex-direction: column;
     width: 90%;
-    border:black solid 2px;
-    border-radius: 8px;
     margin-bottom: 0.5rem;
     margin-left: 1rem;
-      &--data {
-        display:flex ;
-        flex-direction: row; 
-      }
-      &--title {
-        width: 100%;
-        height:30%;
-        background-color: $main-color;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        }
-      &--button {
-        display: flex;
-        justify-content: flex-start;
-        padding-top:10px;
-      }
-      &--name {
-        display: flex;
-        justify-content:flex-start;
-        margin-top: -10px;
-      }
-      &--img {
-        margin-top: -10%;
-        margin-left: 90%;
-        height:40px;
-      
-      }  
-  /*     &--data{
-        display: flex;
-        align-items: center;
-      }  */  
+    z-index: 10;
+    &--data {
+      display: flex;
+      flex-direction: row;
+    }
+    &--title {
+      width: 100%;
+      height: 30%;
+      background-color: $main-color;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      color: #ffff;
+    }
+    &--button {
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 10px;
+    }
+    &--name {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: -12px;
+      color: #ffff;
+    }
+    &--button-like {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -6%;
+    }
   }
-  &__box{
-    width:80%;
-    height: 90px;
+  &__box {
+    width: 80%;
+    height: 3.2rem;
   }
 
-  &--title{
+  &--title {
     color: #ffff;
     font-family: $main-font;
     font-size: 1rem;
     padding-left: 1rem;
-
   }
-  &--button{
+  &--button {
     width: 6rem;
     height: 2rem;
     border-radius: 15%;
@@ -61,17 +56,69 @@
     color: #ffff;
     font-family: $main-font;
   }
-  &--name{
+  &--name {
     font-family: $main-font;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    padding-left:7rem;
+    padding-left: 7rem;
     margin-top: -19px;
   }
-  &--star-img {
-    width: 8%;
-    height:8%;
+  &--like {
+    background-color: $black-light;
+    border: none;
+  }
+}
+.tracks-container {
+  background-color: $black-light;
+  z-index: 1;
+  margin-bottom: 1rem;
+  &__title {
+    font-family: $main-font;
+    padding-left: 1rem;
+    color: #ffff;
+    padding-top: 1rem;
+  }
+}
+.star {
+  font-size: 1.2rem;
+}
+.star2 {
+  font-size: 3rem;
+}
+@media (min-width: 500px) {
+  .track {
+    &__container {
+      width: 80%;
+      align-items: center;
+      &--button-like {
+        display: block;
+        margin-left: 90%;
+      }
+    }
+    &--button {
+      display: block;
+      padding-top: 5px;
+    }
+  
+    &__box {
+      width: 80%;
+      height: 5rem;
+    }
+  }
  
-
+}
+@media (min-width:1024px) {
+  .track {
+    &__box {
+      width: 80%;
+      height: 6rem;
+    }
+    &--name {
+      font-family: $main-font;
+      font-size: 1rem;
+      font-weight: 700;
+      padding-left: 7rem;
+      margin-top: -19px;
+    }
   }
 }

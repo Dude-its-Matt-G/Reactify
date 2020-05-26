@@ -13,7 +13,7 @@ const useAlbums = () => {
     }
 
     return {
-        artist: appStorage.albums,
+        albums: appStorage.albums,
         setAlbums       
     }
 }

@@ -21,7 +21,8 @@ const Navbar = (props) =>{
         <SearchBar
         type="text" 
         placeholder="Search for another artist"
-        name="artist" classnameWrite="navbar__top-bar--write" classname="navbar__top-bar-style"/>
+        name="artist" classnameWrite="navbar__top-bar--write" classname="navbar__top-bar-style"
+        button="navbar__top-bar--button"/>
       </div>  
    </navbar>
  )

@@ -22,7 +22,7 @@ const Home = () => {
         </p>
       </div>
       <div>
-        <SearchBar type="text" placeholder="Type the name of your favourite artist" name="artist" classname="search" classnameWrite="search__write"/>
+        <SearchBar type="text" placeholder="Type the name of your favourite artist" name="artist" classname="search" classnameWrite="search__write" button="search__button"/>
       </div>
     </div>       
    </LayoutHome>
