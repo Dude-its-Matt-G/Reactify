@@ -24,30 +24,6 @@ const TrackSingle = ({ url, name, id }) => {
     }
   };
 
-    
-    useEffect(() => {
-      const favs = localStorage.getItem('favs') || [];
-      setLiked(favs.includes(id));
-     //obtiene los favs ya guardados
-      favs.push(); //guarda tu canción... creo que el id seria lo mejor
-      localStorage.setItem('favs', favs); //guarda el nuevo favs
-    }, [liked]); //Para que se ejecute cuando cambia liked
-
-
-
-/*   const favorites = [];
-
-  const addToFavorites = () => {
-   
-    if (setLiked === true) {
-      favorites.push({ id });
-    } else {
-      favorites.splice({ id });
-    }
-  };
-  addToFavorites();
-  console.log(favorites); */
-
   return (
     <section>
       <div className="track__container">
