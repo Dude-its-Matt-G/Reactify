@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../tracks_container/track.scss";
 import useAudio from "../../audioHooks";
-import useTracks from "../../context/tracks";
-import useFavs from "../../context/favs";
+import useFavorites from "../../context/favs";
 
 const TrackSingle = ({ url, name, id }) => {
   const [playing, toggle] = useAudio(url);
-  const [liked, setLiked] = useState(false);
-  const [stars, setStars] = useState("far fa-star");
-  const { tracks } = useTracks();
-  const { updateFavs } = useFavs();
-  console.log(tracks);
+  const { favorites, setFavorites } = useFavorites();
+  const [liked, setLiked] = useState(() => {
+    const favs = JSON.parse(localStorage.getItem("favs")) || [];
+    return favs.includes(id.toString());
+  });
+  const [stars, setStars] = useState(() => {
+    const favs = JSON.parse(localStorage.getItem("favs")) || [];
+    return favs.includes(id.toString()) ? "fas fa-star" : "far fa-star";
+  });
 
   const doLike = () => {
+    const favs = JSON.parse(localStorage.getItem("favs")) || [];
+    localStorage.removeItem("favs");
+
     if (!liked) {
-      setLiked((prevState) => {
-        return { like: !prevState.like };
-      });
+      favs.push(id.toString());
+      localStorage.setItem("favs", JSON.stringify(favs));
       setStars("fas fa-star");
+      setLiked(true);
     } else {
+      localStorage.setItem(
+        "favs",
+        JSON.stringify(favs.filter((fav) => fav !== id.toString()))
+      );
       setStars("far fa-star");
       setLiked(false);
     }
   };
 
+  console.log(favorites);
   return (
     <section>
       <div className="track__container">
@@ -48,5 +59,4 @@ const TrackSingle = ({ url, name, id }) => {
     </section>
   );
 };
-
 export default TrackSingle;
